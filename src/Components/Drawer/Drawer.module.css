@@ -1,0 +1,8 @@
+.drawer {
+  color: var(--color-primary-font) !important;
+  background-color: var(--color-bar) !important;
+}
+
+.navlinkActive {
+  color: var(--color-primary-font);
+}

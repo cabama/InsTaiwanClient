@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.textField {
+ margin-right: 20px !important;
+}
+
+.inputFile {
+   display: none;
+}
+
+.uploadButton {
+  justify-content: center;
+  align-content: center;
+  height: 32px;
+}

@@ -1,0 +1,19 @@
+    
+.root {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-surface);
+}
+
+.AppBar {
+  background-color: var(--color-surface) !important;
+}
+
+.menuButton {
+  margin-right: 2;
+}
+
+.title {
+  flex-grow: 1;
+}
