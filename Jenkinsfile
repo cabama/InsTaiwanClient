@@ -9,9 +9,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            when {
-                branch 'master'
-            }
             steps {
                 sh 'docker-compose -f docker-compose.jenkins.yml up'
             }
