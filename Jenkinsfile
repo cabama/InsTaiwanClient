@@ -16,4 +16,5 @@ pipeline {
                 sh 'docker-compose -f docker-compose.jenkins.yml up'
             }
         }
+    }
 }
