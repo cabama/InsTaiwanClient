@@ -4,7 +4,6 @@ services:
   jdm-client:
     image: instaiwan/client
     build: .
-    container_name: instaiwan-client-container
     command: npm run build
     volumes:
       - ./build:/usr/src/instaiwan/build
