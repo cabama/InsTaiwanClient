@@ -7,5 +7,5 @@ services:
     command: npm run build
     volumes:
       - type: bind
-        source: ./build
-        target: /usr/src/instaiwan/build
+        source: "./build"
+        target: "/usr/src/instaiwan/build"
