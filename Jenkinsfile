@@ -16,8 +16,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'echo $USER'
-                sh 'docker-compose -f docker-compose.jenkins.yml up --build'
+                sh 'docker-compose -f docker-compose.jenkins.yml build --no-cache'
+                sh 'docker-compose -f docker-compose.jenkins.yml up'
             }
         }
     }
