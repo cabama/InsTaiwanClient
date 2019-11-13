@@ -11,6 +11,7 @@
 # production
 /build/*
 !/build/.gitkeep
+!/build/readme.md
 
 # misc
 .DS_Store
