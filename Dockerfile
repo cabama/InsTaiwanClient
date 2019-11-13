@@ -3,6 +3,7 @@ FROM node:latest
 # Create app directory
 RUN mkdir -p /usr/src/instaiwan
 RUN mkdir -p /usr/src/instaiwan/public
+RUN mkdir -p /usr/src/instaiwan/build
 RUN mkdir -p /usr/src/instaiwan/src
 
 WORKDIR /usr/src/instaiwan
