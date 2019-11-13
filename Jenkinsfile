@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'echo $USER'
                 sh 'rm -rf build/*'
-                sh 'chown -R source_data'
+                sh 'chown -R jenkins build'
             }
         }
 
