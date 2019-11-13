@@ -1,7 +1,18 @@
 FROM node:latest
 
-# Create app directory
 RUN mkdir -p /usr/src/instaiwan
+RUN useradd -d /usr/src/instaiwan -m -s /bin/bash tester && echo "tester:tester" | chpasswd && adduser tester sudo
+
+# start working in the "tester" home directory
+WORKDIR /usr/src/instaiwan
+# Make the files owned by tester
+RUN chown -R tester:tester /usr/src/instaiwan
+# Switch to your new user in the docker image
+USER tester
+
+
+
+# Create app directory
 RUN mkdir -p /usr/src/instaiwan/public
 RUN mkdir -p /usr/src/instaiwan/build
 RUN mkdir -p /usr/src/instaiwan/src
