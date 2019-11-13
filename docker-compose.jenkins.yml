@@ -6,8 +6,6 @@ services:
     build: .
     command: npm run build
     volumes:
-      - ./build:/usr/src/instaiwan/build:instaiwanVolume
-    volumes:
       - type: bind
         source: ./build
-        target: /usr/src/instaiwan/build:instaiwanVolume
+        target: /usr/src/instaiwan/build
