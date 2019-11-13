@@ -5,5 +5,4 @@ services:
     image: instaiwan/client
     build: .
     command: npm run build
-    volumes:
-      - ./build:/usr/src/instaiwan/build
+
