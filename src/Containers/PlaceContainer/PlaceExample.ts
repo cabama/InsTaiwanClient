@@ -1,6 +1,6 @@
 export const PlaceExamples = [
   {
-    title: 'Taipei',
+    title: 'Taipei Chu',
     date: '26 de Octubre del 2019',
     image: 'places/taipei.jpg',
     description: ''
