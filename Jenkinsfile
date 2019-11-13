@@ -7,11 +7,7 @@ pipeline {
     stages {
 
         stage('clean') {
-            steps {
-               dir('build') {
-                   deleteDir()
-               }
-            }
+            sh 'rm -rf build/*'
         }
 
         stage('Build') {
