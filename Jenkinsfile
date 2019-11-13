@@ -7,7 +7,9 @@ pipeline {
     stages {
 
         stage('clean') {
-            sh 'rm -rf build/*'
+            steps {
+                sh 'rm -rf build/*'
+            }
         }
 
         stage('Build') {
