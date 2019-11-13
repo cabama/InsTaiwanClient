@@ -6,4 +6,6 @@ services:
     build: .
     command: npm run build
     volumes:
-      - ./build:/usr/src/instaiwan/build
+      - ./build:/usr/src/instaiwan/build:instaiwanVolume
+volumes:
+  instaiwanVolume:
