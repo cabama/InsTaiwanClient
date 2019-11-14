@@ -1,20 +1,13 @@
 FROM node:latest
 
-RUN mkdir -p /usr/src/instaiwan
-RUN mkdir -p /usr/src/instaiwan/build
-
-RUN useradd -d /usr/src/instaiwan -m -s /bin/bash tester && echo "tester:tester" | chpasswd && adduser tester sudo
-
 # Install Typescript
 RUN npm install -g tsc
 RUN npm install -g concurrently
 RUN npm install typescript -g
 
 # start working in the "tester" home directory
+RUN useradd -m -d /usr/src/instaiwan tester
 WORKDIR /usr/src/instaiwan
-# Make the files owned by tester
-RUN chown -R tester:tester /usr/src/instaiwan
-RUN chown -R tester:tester /usr/src/instaiwan/build
 
 # Switch to your new user in the docker image
 USER tester
@@ -22,6 +15,7 @@ USER tester
 # Create app directory
 RUN mkdir -p /usr/src/instaiwan/public
 RUN mkdir -p /usr/src/instaiwan/src
+RUN mkdir -p /usr/src/instaiwan/build
 
 # COPY PROJECT SETTINGS
 ADD package.json /usr/src/instaiwan
