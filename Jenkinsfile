@@ -9,7 +9,6 @@ pipeline {
         stage('clean') {
             steps {
                 sh 'echo $USER'
-                sh 'chown -R jenkins build'
             }
         }
 
