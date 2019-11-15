@@ -11,6 +11,8 @@ RUN mkdir -p /usr/src/instaiwan/src
 RUN mkdir -p /usr/src/instaiwan/public
 RUN mkdir -p /usr/src/instaiwan/build
 
+WORKDIR /usr/src/instaiwan
+
 # COPY PROJECT SETTINGS
 ADD package.json /usr/src/instaiwan
 ADD package-lock.json /usr/src/instaiwan
