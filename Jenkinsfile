@@ -9,8 +9,6 @@ pipeline {
         stage('clean') {
             steps {
                 sh 'echo $USER'
-                sh 'rm -rf build/*'
-                sh 'rm -rf build/.gitkeep'
                 sh 'chown -R jenkins build'
             }
         }
