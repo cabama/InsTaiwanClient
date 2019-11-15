@@ -8,13 +8,13 @@ pipeline {
 
         stage('clean') {
             steps {
-                sh 'echo $USER'
+                sh 'echo $USER $(id -u):$(id -g)'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'docker-compose -f docker-compose.jenkins.yml up --build'
+                sh 'CURRENT_UID=$(id -u):$(id -g) docker-compose -f docker-compose.jenkins.yml up --build'
             }
         }
     }
