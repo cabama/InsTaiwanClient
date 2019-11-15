@@ -7,13 +7,15 @@ RUN npm install typescript -g
 
 # start working in the "tester" home directory
 RUN useradd -m -d /usr/src/instaiwan tester
+RUN mkdir -p /usr/src/instaiwan/public
 WORKDIR /usr/src/instaiwan
+
+RUN chown tester /usr/src/instaiwan/build
 
 # Switch to your new user in the docker image
 USER tester
 
 # Create app directory
-RUN mkdir -p /usr/src/instaiwan/public
 RUN mkdir -p /usr/src/instaiwan/src
 RUN mkdir -p /usr/src/instaiwan/build
 
