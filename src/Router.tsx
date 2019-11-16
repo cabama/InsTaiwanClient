@@ -8,7 +8,8 @@ import {
 import {
   FoodsContainer,
   PlaceContainer,
-  CreateCityContainer
+  CreateCityContainer,
+  LoginContainer
 } from './Containers'
 
 export const RouterApp: React.FC = () => (
@@ -25,6 +26,9 @@ export const RouterApp: React.FC = () => (
       </Route>
       <Route path="/places">
         <PlaceContainer/>
+      </Route>
+      <Route path="/login">
+        <LoginContainer/>
       </Route>
       <Route exac path="/">
         <Redirect to="/feed" />
