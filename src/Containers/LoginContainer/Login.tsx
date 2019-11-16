@@ -27,6 +27,7 @@ export const LoginContainer: React.FC = () => {
     formData.append('username', inputs.username)
     formData.append('password', inputs.password)
     const init: RequestInit = {
+      method: 'POST',
       body: formData
     }
     fetchService<{ token: string }>({ endpoint: '/login', init })
