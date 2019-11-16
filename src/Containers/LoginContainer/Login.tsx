@@ -30,7 +30,7 @@ export const LoginContainer: React.FC = () => {
       method: 'POST',
       body: formData
     }
-    fetchService<{ token: string }>({ endpoint: '/login', init })
+    fetchService<{ token: string }>({ endpoint: 'users/loginEmail', init })
       .then(response => {
         console.log('First user', user.value)
         if (response.json.token) return response.json.token

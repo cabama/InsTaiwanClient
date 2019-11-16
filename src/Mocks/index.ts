@@ -2,6 +2,6 @@ import { loginMock } from './login'
 import { userMock } from './user'
 
 export const MockRouter = {
-  '/login': loginMock,
+  '/users/loginEmail': loginMock,
   '/users/me': userMock
 }
