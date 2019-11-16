@@ -5,12 +5,12 @@ import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import style from './Drawer.module.css'
 import { CommonList } from './CommonList'
-import { AdminList } from './AdminList'
+import { AdminList, NoAdminList } from './AdminList'
 import { Link } from 'react-router-dom'
 import { useTheme, Typography } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import { UserContext } from '../../Services/UserService'
 
 type BarListProps = {
   onClose: Function
@@ -19,6 +19,7 @@ type BarListProps = {
 const BarList: React.FunctionComponent<BarListProps> = (props) => {
   const location = useHistory().location
   const theme = useTheme()
+  const user = React.useContext(UserContext)
   const primaryText = theme.palette.text.primary
   const secondaryText = theme.palette.text.secondary
   console.log('location', location)
@@ -44,12 +45,20 @@ const BarList: React.FunctionComponent<BarListProps> = (props) => {
       </List>
       <Divider />
       <List>
-        { AdminList.map((element, index) => (
-          <ListItem button key={index}>
-            <ListItemIcon>{element.icon}</ListItemIcon>
-            <ListItemText primary={element.title} />
-          </ListItem>
-        ))}
+        { 
+          user.logged 
+          ? AdminList.map((element, index) => (
+            <ListItem button key={index}>
+              <ListItemIcon>{element.icon}</ListItemIcon>
+              <ListItemText primary={element.title} />
+            </ListItem>))
+          : NoAdminList.map((element, index) => (
+            <ListItem button key={index}>
+              <ListItemIcon>{element.icon}</ListItemIcon>
+              <ListItemText primary={element.title} />
+            </ListItem>
+          ))
+        }
       </List>
     </div>
   )
