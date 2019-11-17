@@ -63,6 +63,7 @@ export const LoginContainer: React.FC = () => {
         <Texfield
           id="password"
           label="Password"
+          type="password"
           value={inputs.password}
           onChange={handleChange('password')}
           margin="normal"

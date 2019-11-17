@@ -48,7 +48,7 @@ export const fetchService = async <T>(argi: FetchServiceProps) => {
 export const fetchAuthService = async <T>(argi: FetchServiceProps, user: User) => {
 
   const {token} = user
-  const headers = { ...(argi.init && argi.init.headers), token }
+  const headers = { ...(argi.init && argi.init.headers), Authorization: `JWT ${token}` }
   argi.init = {...argi.init, headers}
 
   return customFetch<T>(argi)
