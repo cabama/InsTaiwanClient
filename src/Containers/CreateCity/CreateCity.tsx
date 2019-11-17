@@ -25,7 +25,6 @@ export const CreateCityContainer: React.FC = () => {
 
   const handleChange = (field: keyof FormInputs) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value
-    console.log(value)
     setInputs({...inputs, [field]: value})
   }
 
