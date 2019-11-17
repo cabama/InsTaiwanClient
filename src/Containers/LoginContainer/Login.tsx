@@ -8,7 +8,7 @@ import { UserContext } from '../../Services/UserService'
 
 
 type FormInputs = {
-  'username': string
+  'email': string
   'password': string
 }
 
@@ -16,7 +16,7 @@ type FormInputs = {
 export const LoginContainer: React.FC = () => {
 
   const defaultInputs: FormInputs = {
-    'username': '',
+    'email': '',
     'password': '',
   }
   const user = React.useContext(UserContext)
@@ -24,7 +24,7 @@ export const LoginContainer: React.FC = () => {
 
   const login = async (inputs: FormInputs): Promise<void> => {
     const formData = new FormData()
-    formData.append('username', inputs.username)
+    formData.append('email', inputs.email)
     formData.append('password', inputs.password)
     const init: RequestInit = {
       method: 'POST',
@@ -52,10 +52,10 @@ export const LoginContainer: React.FC = () => {
     <View>
       <form action="" style={{padding: '5px 20px'}}>
         <Texfield
-          id="username"
-          label="User Name"
-          value={inputs.username}
-          onChange={handleChange('username')}
+          id="email"
+          label="Email"
+          value={inputs.email}
+          onChange={handleChange('email')}
           margin="normal"
           fullWidth
         ></Texfield>
