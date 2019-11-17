@@ -17,12 +17,17 @@ type BarListProps = {
 }
 
 const BarList: React.FunctionComponent<BarListProps> = (props) => {
-  const location = useHistory().location
+  const history = useHistory()
+  const location = history.location
   const theme = useTheme()
   const user = React.useContext(UserContext)
   const primaryText = theme.palette.text.primary
   const secondaryText = theme.palette.text.secondary
-  console.log('location', location)
+
+  const goTo = (path: string) => {
+    history.push(path)
+  }
+
   return (
     <div
       role="presentation"
@@ -34,7 +39,7 @@ const BarList: React.FunctionComponent<BarListProps> = (props) => {
           const match = element.path.startsWith(location.pathname)
           const color = match ? primaryText : secondaryText
           return (
-            <ListItem button key={index}>
+            <ListItem button key={index} onClick={() => goTo(element.path)}>
               <ListItemIcon style={{ color }}>{element.icon}</ListItemIcon>
               <Link to={element.path}>
                 <Typography style={{ color }}>{element.title}</Typography>
@@ -48,12 +53,12 @@ const BarList: React.FunctionComponent<BarListProps> = (props) => {
         { 
           user.logged 
           ? AdminList.map((element, index) => (
-            <ListItem button key={index}>
+            <ListItem button key={index} onClick={() => goTo(element.path)}>
               <ListItemIcon>{element.icon}</ListItemIcon>
               <ListItemText primary={element.title} />
             </ListItem>))
           : NoAdminList.map((element, index) => (
-            <ListItem button key={index}>
+            <ListItem button key={index} onClick={() => goTo(element.path)}>
               <ListItemIcon>{element.icon}</ListItemIcon>
               <ListItemText primary={element.title} />
             </ListItem>

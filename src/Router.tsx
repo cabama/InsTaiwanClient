@@ -9,7 +9,8 @@ import {
   FoodsContainer,
   PlaceContainer,
   CreateCityContainer,
-  LoginContainer
+  LoginContainer,
+  ProfileContainer
 } from './Containers'
 
 export const RouterApp: React.FC = () => (
@@ -29,6 +30,9 @@ export const RouterApp: React.FC = () => (
       </Route>
       <Route path="/login">
         <LoginContainer/>
+      </Route>
+      <Route path="/profile">
+        <ProfileContainer />
       </Route>
       <Route exac path="/">
         <Redirect to="/feed" />
