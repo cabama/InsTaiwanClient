@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from '../../Components/View/View'
 import Button from '@material-ui/core/Button'
 import Texfield from '@material-ui/core/TextField'
-
+import { useHistory } from 'react-router-dom'
 import { fetchService } from '../../Services/FetchService'
 import { UserContext } from '../../Services/UserService'
 
@@ -15,13 +15,15 @@ type FormInputs = {
 
 export const LoginContainer: React.FC = () => {
 
+  const user = React.useContext(UserContext)
+  const history = useHistory()
+
   const defaultInputs: FormInputs = {
     'email': '',
     'password': '',
   }
-  const user = React.useContext(UserContext)
   const [inputs, setInputs] = React.useState(defaultInputs)
-
+  
   const login = async (inputs: FormInputs): Promise<void> => {
     const formData = new FormData()
     formData.append('email', inputs.email)
@@ -32,6 +34,7 @@ export const LoginContainer: React.FC = () => {
     }
     fetchService<{ token: string }>({ endpoint: 'users/loginEmail', init })
       .then(response => {
+        debugger
         console.log('First user', user.value)
         if (response.json.token) return response.json.token
         else throw new Error('No token in the response')
@@ -39,6 +42,9 @@ export const LoginContainer: React.FC = () => {
       .then(token => {
         user.setToken(token)
         console.log('new user con token', user.value)
+      })
+      .then(() => {
+        history.push('/feed')
       })
       .catch(error => console.error('No token', error))
   } 
@@ -76,7 +82,7 @@ export const LoginContainer: React.FC = () => {
           style={{ marginTop: '20px' }}
           onClick={() => login(inputs)}
         >
-          Create
+          LogIn
         </Button>
 
 

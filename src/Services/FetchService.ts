@@ -4,7 +4,7 @@ import { User } from '../Types/User'
 
 function getBaseUrl () {
   return process.env.REACT_APP_DEV_MODE === 'TRUE'
-    ? 'http://localhost:2525/api'
+    ? '//localhost:2525/api'
     : 'https://taiwan.reshuhormiguero.club/api'
 }
 
@@ -38,6 +38,7 @@ const customFetch: CustomFetch = <T>(fetchArguments: FetchServiceProps, auth: bo
 export const fetchService = async <T>(argi: FetchServiceProps) => {
   return customFetch<T>(argi)
     .then(async (response) => {
+      debugger
       const json = await response.json()
       console.log('FETCH')
       console.dir({
