@@ -2,7 +2,11 @@ import { FetchServiceProps, IApiResponse } from '../Types/Fetch'
 import { mockRouterService } from './MockService'
 import { User } from '../Types/User'
 
-const baseUrl = 'https://taiwan.reshuhormiguero.club/api'
+function getBaseUrl () {
+  return process.env.REACT_APP_DEV_MODE === 'TRUE'
+    ? 'http://localhost:2525/api'
+    : 'https://taiwan.reshuhormiguero.club/api'
+}
 
 type CustomFetch = <T>(arg: FetchServiceProps) => Promise<IApiResponse<T>>
 
@@ -18,7 +22,7 @@ export const buildQueryParams = (queryParams: QueryParamsObject): string => {
 }
 
 const customFetch: CustomFetch = <T>(fetchArguments: FetchServiceProps, auth: boolean = false) => {
-  const base = fetchArguments.baseUrl ? fetchArguments.baseUrl : baseUrl
+  const base = fetchArguments.baseUrl ? fetchArguments.baseUrl : getBaseUrl()
   if (fetchArguments.queryParams) {
     fetchArguments.endpoint += buildQueryParams(fetchArguments.queryParams)
   }

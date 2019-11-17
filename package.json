@@ -18,7 +18,7 @@
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_DEV_MODE=TRUE react-scripts start",
     "mock": "REACT_APP_MOCK_MODE=TRUE react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

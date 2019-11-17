@@ -17,7 +17,6 @@ export const ProfileContainer: React.FC = () => {
           label="User Name"
           value={user.name}
           margin="normal"
-          disabled
           fullWidth
         ></Texfield>
 
@@ -26,7 +25,6 @@ export const ProfileContainer: React.FC = () => {
           label="User Surname"
           value={user.surname}
           margin="normal"
-          disabled
           fullWidth
         ></Texfield>
 
@@ -35,7 +33,6 @@ export const ProfileContainer: React.FC = () => {
           label="User Email"
           value={user.email}
           margin="normal"
-          disabled
           fullWidth
         ></Texfield>
 
