@@ -2,7 +2,7 @@ import { FetchServiceProps, IApiResponse } from '../Types/Fetch'
 import { mockRouterService } from './MockService'
 import { User } from '../Types/User'
 
-const baseUrl = 'http://taiwan.reshuhormiguero.club/api'
+const baseUrl = 'https://taiwan.reshuhormiguero.club/api'
 
 type CustomFetch = <T>(arg: FetchServiceProps) => Promise<IApiResponse<T>>
 
