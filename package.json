@@ -20,6 +20,7 @@
   "scripts": {
     "start": "REACT_APP_DEV_MODE=TRUE react-scripts start",
     "mock": "REACT_APP_MOCK_MODE=TRUE react-scripts start",
+    "startProd": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
